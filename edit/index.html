@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+  <!-- 구글 태그 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLL3VPVWW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JLL3VPVWW3');
+</script>
+  <!-- 사이트 코드 시작 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>카톡 편집기</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
+</head>
+<h1 id="menuTitle">카톡 편집기</h1>
+
+<body>
+  <center>
+    <div class="menu">
+      <h1 id="mealTitle"></h1>
+      <a>
+        하단의 박스를 눌러 편집하시려는 <h3><strong>텍스트를</strong></h3>를 입력해주세요.😃
+      </a>
+      <br><br><textarea placeholder="내용을 입력해 주세요."></textarea>
+        <br><br><button onclick="replaceNumbers()">문자 변경</button>
+  </center>
+</body>
+<!--여기부터 안내 시작-->
+      <div class="menu">
+      <h1 id="mealTitle"></h1>
+      <a>
+<h3><strong><center>급식 문자 지정 번호🖊️</center></strong></h3>
+<h5>⛔급식 메뉴 바로 옆에다가 숫자를 적어야 합니다. 자동으로 줄 바꿈 처리 돼요.⛔</h5>0 = 시간표 변경<br>1 = 밥<br>2 = 면<br>3 = 특식<br>4 = 국/탕<br>5 = 반찬<br>6 = 후식<br>7 = 우유 성분 표시 및 숙제/준비물 요소<br>8 = 숙제 없음<br><center><h4>사용법 예시🐣</h4> <h5>0오늘의 급식(수)1<br>쌀밥4<br>찌개5<br>김치<br>고기<br>나물6<br>에이드78</h5></center>
+      </a>
+  </center>
+</body>
+              </div>
+        </div>
+        <div class="menu">
+      <h1 id="mealTitle"></h1>
+      <h3><strong><center>학교 일정✨</center></strong></h3>
+        <h5>⛔데이터 캐시 삭제 시 초기화됩니다(기기간 동기화 지원X)⛔</h5>
+    <form>
+      <label for="homework">숙제:</label>
+      <input type="text" id="homework">
+      <button type="button" onclick="saveHomework()">저장</button>
+    </form>
+    <br>
+    <ul id="homeworkList" id="Hwdisplay"></ul>
+
+      <a>
+      </a>
+                </div>
+<!--푸터 시작-->
+</html>
+  <footer>
+  <center>
+    <span onclick="location.href='/meal/';">급식 식단 조회기 바로가기</span>
+  </center>
+</footer>
+
+<!--스크립트 시작-->
+    <script>
+function saveHomework() {
+  const homeworkInput = document.getElementById("homework");
+  let homework = homeworkInput.value;
+  if (homework.trim() === "") {
+    return;
+  }
+  homework += "   "; // 정보에 공백 추가
+  let homeworks = JSON.parse(localStorage.getItem("homeworks")) || [];
+  homeworks.push(homework);
+  localStorage.setItem("homeworks", JSON.stringify(homeworks));
+  homeworkInput.value = "";
+  displayHomeworks();
+}
+
+      function deleteHomework(index) {
+        let homeworks = JSON.parse(localStorage.getItem("homeworks")) || [];
+        homeworks.splice(index, 1);
+        localStorage.setItem("homeworks", JSON.stringify(homeworks));
+        displayHomeworks();
+      }
+
+      function displayHomeworks() {
+        const homeworkList = document.getElementById("homeworkList");
+        homeworkList.innerHTML = "";
+        let homeworks = JSON.parse(localStorage.getItem("homeworks")) || [];
+        homeworks.forEach((homework, index) => {
+          const li = document.createElement("li");
+          li.textContent = homework;
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "X";
+          deleteButton.onclick = () => deleteHomework(index);
+          li.appendChild(deleteButton);
+          homeworkList.appendChild(li);
+        });
+      }
+
+      displayHomeworks();
+    </script>
