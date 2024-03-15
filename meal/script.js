@@ -21,8 +21,8 @@ window.addEventListener("load", () => {
           const h1 = document.createElement("h1");
           const text = lunch.mealServiceDietInfo[1].row[0].DDISH_NM;
           const textWithMilk = text.replace(/12./g, '').replace(/2./g, '(🥛)').replace(/경인/g, '').replace(/[\d.()]+/g, '').replace(/o|l|m|g/g, '').replace(/[.()]/g, '').replace(/🥛/g, '(🥛)').trim();
- // 괄호와 .을 제거하고 숫자 '2'를 '(우유)'로 변경하며 o,l,m,g를 공백으로 바꾼 문자열
-          h1.innerHTML = textWithMilk.replace(/\n/g, '<br>'); // 줄바꿈 문자열을 <br> 태그로 변경하여 HTML에 추가하기
+ // 괄호와 .을 제거하고 숫자 '2'를 '(우유)'로 변경하며 o,l,m,g를 공백으로 바꾸는 코드
+          h1.innerHTML = textWithMilk.replace(/\n/g, '<br>'); // 줄바꿈 문자열을 <br> 태그로 변경하여 HTML에 추가
   
           const mealTitle = document.getElementById("mealTitle");
           mealTitle.innerHTML = `오늘의 급식(${dayOfWeek})`;
