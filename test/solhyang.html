@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>솔향제 부스 정보</title>
+  
+  <style>
+    /* 폰트 불러오기 */
+    @font-face {
+      font-family: 'SUITE-Regular';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    /* 초기화 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'SUITE-Regular', Arial, sans-serif;
+    }
+
+    /* 기본 스타일 */
+    body {
+      background-color: #f1f1f1;
+      color: #333;
+    }
+
+    /* 헤더 */
+    header {
+      background-color: #004d40;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* 홈 아이콘을 포함한 내비게이션 바 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 10px 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .nav-item {
+      display: flex;
+      align-items: center;
+      color: #004d40;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav .nav-item:hover {
+      color: #1b1b1b;
+    }
+
+    nav .nav-icon {
+      margin-right: 5px;
+      font-size: 1.4rem;
+    }
+
+    /* 메인 컨테이너 */
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    /* 부스 카드 스타일 */
+    .booth-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px 0;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: scale(0.98);
+      transition: transform 0.3s ease;
+    }
+
+    .booth-card:hover {
+      transform: scale(1.02);
+    }
+
+    .booth-card img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      position: relative;
+    }
+
+    /* 이미지 위에 혼잡도 표시 */
+    .congestion-level {
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 5px 8px;
+      border-radius: 5px;
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* 혼잡도 색상 */
+    .booth-card .congestion-level.low { background-color: rgba(102, 187, 106, 0.8); }
+    .booth-card .congestion-level.medium { background-color: rgba(255, 235, 59, 0.8); color: #333; }
+    .booth-card .congestion-level.high { background-color: rgba(239, 83, 80, 0.8); }
+
+    /* 부스 제목과 설명 */
+    .booth-card h2 {
+      font-size: 1.2rem;
+      color: #004d40;
+      margin: 15px 0 5px;
+    }
+
+    .booth-card p {
+      font-size: 0.9rem;
+      color: #555;
+      padding: 0 15px 15px;
+    }
+
+    /* 푸터 */
+    footer {
+      background-color: #1f1f1f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header>경인고등학교 솔향제</header>
+
+  <!-- 홈 아이콘을 포함한 내비게이션 바 -->
+  <nav>
+    <a href="#" class="nav-item">
+      <i class="fas fa-home nav-icon"></i>홈
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-map-marker-alt nav-icon"></i>부스 지도
+    </a>
+  </nav>
+
+  <!-- 메인 컨테이너 -->
+  <div class="container">
+    <!-- 부스 카드 예시 -->
+    <div class="booth-card">
+      <img src="booth3.jpg" alt="Booth Image">
+      <div class="congestion-level low">혼잡도: 혼잡하지 않음</div>
+      <h2>부스부스</h2>
+      <p>안녕하세요, 저희 부스는 다양한 체험을 제공하는 곳입니다.</p>
+    </div>
+
+    <div class="booth-card">
+      <img src="booth3.jpg" alt="Booth Image">
+      <div class="congestion-level medium">혼잡도: 보통</div>
+      <h2>부스 이름</h2>
+      <p>다양한 놀이와 체험이 준비되어 있어 모두가 즐길 수 있는 공간입니다.</p>
+    </div>
+
+    <div class="booth-card">
+      <img src="booth3.jpg" alt="Booth Image">
+      <div class="congestion-level high">혼잡도: 혼잡</div>
+      <h2>부스 이름</h2>
+      <p>많은 인파가 몰리는 인기 부스입니다. 체험을 즐겨보세요!</p>
+    </div>
+
+    <!-- 필요에 따라 더 많은 부스 카드를 추가하세요 -->
+  </div>
+
+  <!-- 푸터 -->
+  <footer>
+    경인고등학교 진로탐색 프로젝트 복돌이팀 제작 | 2024
+  </footer>
+
+</body>
+</html>
