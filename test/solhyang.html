@@ -7,7 +7,6 @@
   <title>솔향제 부스 정보</title>
   
   <style>
-    /* 폰트 불러오기 */
     @font-face {
       font-family: 'SUITE-Regular';
       src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
@@ -15,7 +14,6 @@
       font-style: normal;
     }
 
-    /* 초기화 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -23,13 +21,11 @@
       font-family: 'SUITE-Regular', Arial, sans-serif;
     }
 
-    /* 기본 스타일 */
     body {
       background-color: #f1f1f1;
       color: #333;
     }
 
-    /* 홈 아이콘을 포함한 내비게이션 바 */
     nav {
       display: flex;
       justify-content: space-between;
@@ -58,14 +54,28 @@
       font-size: 1.4rem;
     }
 
-    /* 메인 컨테이너 */
+    .category-filter {
+      display: flex;
+      align-items: center;
+      margin: 15px;
+      border-radius: 10px;
+      size: 10px;
+    }
+
+    .category-filter select {
+      margin-left: 10px;
+      padding: 8px;
+      font-size: 1rem;
+      border-radius: 10px;
+      size: 10px;
+    }
+
     .container {
       max-width: 500px;
       margin: 20px auto;
       padding: 0 10px;
     }
 
-    /* 부스 카드 스타일 */
     .booth-card {
       background-color: white;
       border-radius: 10px;
@@ -90,25 +100,18 @@
       position: relative;
     }
 
-    /* 이미지 위에 혼잡도 표시 */
-    .congestion-level {
+    .location {
       font-size: 0.9rem;
       font-weight: bold;
       padding: 5px 8px;
       border-radius: 5px;
-      color: white;
+      color: #333;
+      background-color: #e0e0e0;
       position: absolute;
       top: 10px;
       right: 10px;
-      background-color: rgba(0, 0, 0, 0.5);
     }
 
-    /* 혼잡도 색상 */
-    .booth-card .congestion-level.low { background-color: rgba(102, 187, 106, 0.8); }
-    .booth-card .congestion-level.medium { background-color: rgba(255, 235, 59, 0.8); }
-    .booth-card .congestion-level.high { background-color: rgba(239, 83, 80, 0.8); }
-
-    /* 부스 제목과 설명 */
     .booth-card h2 {
       font-size: 1.2rem;
       color: #3f3f3f;
@@ -121,7 +124,6 @@
       padding: 0 15px 15px;
     }
 
-    /* 푸터 */
     footer {
       background-color: #1f1f1f;
       color: white;
@@ -132,7 +134,6 @@
   </style>
 </head>
 <body>
-  <!-- 홈 아이콘을 포함한 내비게이션 바 -->
   <nav>
     <a href="#" class="nav-item">
       <i class="fas fa-home nav-icon"></i>홈
@@ -141,38 +142,71 @@
       <i class="fas fa-map-marker-alt nav-icon"></i>부스 지도
     </a>
   </nav>
-
-  <!-- 메인 컨테이너 -->
+  <div class="category-filter">
+    <label for="floor-category">층 선택:</label>
+    <select id="floor-category" onchange="filterBooths()">
+      <option value="all">전체</option>
+      <option value="1층">1층</option>
+      <option value="2층">2층</option>
+      <option value="3층">3층</option>
+    </select>
+    <p>&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+    <label for="type-category">종류 선택:</label>
+    <select id="type-category" onchange="filterBooths()">
+      <option value="all">전체</option>
+      <option value="재미">재미</option>
+      <option value="교육">교육</option>
+    </select>
+  </div>
   <div class="container">
-    <!-- 부스 카드 예시 -->
-    <div class="booth-card">
-      <img src="http://via.placeholder.com/470x313" alt="Bi">
-      <div class="congestion-level low">혼잡하지 않음</div>
+    <div class="booth-card" data-floor="2층" data-type="재미">
+      <img src="http://via.placeholder.com/470x313" alt="Booth Image">
+      <div class="location">1학년 1반</div>
       <h2>부스1</h2>
       <p>부스 설명 1</p>
     </div>
 
-    <div class="booth-card">
-      <img src="http://via.placeholder.com/470x313" alt="Bi">
-      <div class="congestion-level medium">보통</div>
+    <div class="booth-card" data-floor="2층" data-type="교육">
+      <img src="http://via.placeholder.com/470x313" alt="Booth Image">
+      <div class="location">2학년 3반</div>
       <h2>부스2</h2>
-      <p>부스 설명2</p>
+      <p>부스 설명 2</p>
     </div>
 
-    <div class="booth-card">
-      <img src="http://via.placeholder.com/470x313" alt="Bi">
-      <div class="congestion-level high">혼잡</div>
+    <div class="booth-card" data-floor="3층" data-type="재미">
+      <img src="http://via.placeholder.com/470x313" alt="Booth Image">
+      <div class="location">3학년 2반</div>
       <h2>부스3</h2>
-      <p>부스 설명4</p>
+      <p>부스 설명 3</p>
+      </div>
+      
+    <div class="booth-card" data-floor="1층" data-type="재미">
+      <img src="http://via.placeholder.com/470x313" alt="Booth Image">
+      <div class="location">1학년 1반</div>
+      <h2>부스4</h2>
+      <p>부스 설명 4</p>
     </div>
-
-    <!-- 필요에 따라 더 많은 부스 카드를 추가하세요 -->
   </div>
-
-  <!-- 푸터 -->
   <footer>
     경인고등학교 진로탐색 프로젝트 복돌이팀 제작 | 2024
   </footer>
+  <script>
+    function filterBooths() {
+      const floor = document.getElementById('floor-category').value;
+      const type = document.getElementById('type-category').value;
+      const booths = document.querySelectorAll('.booth-card');
 
+      booths.forEach(booth => {
+        const boothFloor = booth.getAttribute('data-floor');
+        const boothType = booth.getAttribute('data-type');
+
+        if ((floor === 'all' || boothFloor === floor) && (type === 'all' || boothType === type)) {
+          booth.style.display = 'block';
+        } else {
+          booth.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
