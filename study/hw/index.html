@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>화작 - 필기 공유</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <style>
+    @font-face {
+      font-family: 'GmarketSansMedium';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color: white;
+    }
+
+    body {
+      margin: 0;
+      font-family: "GmarketSansMedium", cursive;
+      background-color: #1a1a1a;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      margin: 0;
+      padding-top: 60px;
+    }
+
+    .sub {
+      text-align: center;
+      color: #cfcfcf;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .top-link {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .top-link a {
+      color: #d8d8d8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-link a:hover {
+      color: white;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto 60px auto;
+    }
+
+    .menu {
+      position: relative;
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      padding: 20px;
+      padding-bottom: 25px;
+      box-shadow: 0px 0px 10px #494949;
+      margin: 20px auto;
+      max-width: 700px;
+      overflow: hidden;
+    }
+
+    .menu::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      background: rgba(255, 255, 255, 0.08);
+      filter: blur(20px);
+      z-index: -1;
+      border-radius: 18px;
+      opacity: 0.65;
+    }
+
+    .menu h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .menu p {
+      text-align: center;
+      color: #d3d3d3;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .image-list {
+      margin-top: 24px;
+    }
+
+    .image-box {
+      position: relative;
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0px 0px 10px #494949;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+
+    .image-box::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      background: rgba(255, 255, 255, 0.06);
+      filter: blur(18px);
+      z-index: -1;
+      border-radius: 16px;
+      opacity: 0.6;
+    }
+
+    .image-box img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      background-color: #1f1f1f;
+    }
+
+    .file-name {
+      margin-top: 10px;
+      text-align: center;
+      color: #cfcfcf;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .loading,
+    .empty,
+    .error {
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px #494949;
+      margin: 20px auto;
+      text-align: center;
+      color: #d3d3d3;
+    }
+
+    button,
+    .btn {
+      background-color: #d1d1d1;
+      border: none;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 3px;
+      font-family: "GmarketSansMedium", cursive;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .bottom-link {
+      text-align: center;
+      margin-top: 28px;
+    }
+  </style>
+</head>
+<body>
+  <h1>화작</h1>
+  <div class="sub">학습지 사진을 업로드 순서대로 볼 수 있어요.</div>
+
+  <div class="container">
+    <div class="menu">
+      <h2>화작 학습지</h2>
+      <p>사진은 위에서부터 아래로 순서대로 정렬됩니다.</p>
+    </div>
+
+    <div id="image-list" class="image-list">
+      <div class="loading">불러오는 중...</div>
+    </div>
+
+    <div class="bottom-link">
+      <a href="../">← 과목 선택으로 돌아가기</a>
+    </div>
+  </div>
+
+  <script>
+    async function loadImages() {
+      const imageList = document.getElementById("image-list");
+
+      try {
+        const response = await fetch("./images.json");
+
+        if (!response.ok) {
+          throw new Error("images.json을 불러오지 못했습니다.");
+        }
+
+        const images = await response.json();
+
+        if (!Array.isArray(images) || images.length === 0) {
+          imageList.innerHTML = '<div class="empty">아직 업로드된 사진이 없어요.</div>';
+          return;
+        }
+
+        imageList.innerHTML = "";
+
+        images.forEach((fileName, index) => {
+          const box = document.createElement("div");
+          box.className = "image-box";
+
+          const img = document.createElement("img");
+          img.src = "./pic/" + fileName;
+          img.alt = "화작 학습지 " + (index + 1);
+          img.loading = "lazy";
+
+          const name = document.createElement("div");
+          name.className = "file-name";
+          name.textContent = fileName;
+
+          box.appendChild(img);
+          box.appendChild(name);
+          imageList.appendChild(box);
+        });
+      } catch (error) {
+        imageList.innerHTML = '<div class="error">사진 목록을 불러오지 못했어요.</div>';
+      }
+    }
+
+    loadImages();
+  </script>
+</body>
+</html>
