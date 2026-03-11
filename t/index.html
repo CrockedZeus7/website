@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>개인 시간표</title>
+  <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDJ8Q2F742"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JDJ8Q2F742');
+</script>
+  <style>
+    body {
+      font-family: 'GmarketSansMedium', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+    }
+    .menu {
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px #494949;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    select {
+      background-color: #d1d1d1;
+      border: none;
+      color: black;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function navigateToTimetable() {
+      const num = document.getElementById("studentNumber").value;
+      if (num) {
+        window.location.href = `/t/num/${num}/`;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="menu">
+    <h2>📌개인 시간표📌</h2>
+    <h4>자신의 번호를 선택해주세요.</h4>
+    <h5>번호 선택 후 즐겨찾기하여<br>시간표를 확인할 수 있어요.</h5>
+    <select id="studentNumber" onchange="navigateToTimetable()">
+      <option value="">번호 선택</option>
+      <option value="1">1번</option>
+      <option value="2">2번</option>
+      <option value="3">3번</option>
+      <option value="4">4번</option>
+      <option value="5">5번</option>
+      <option value="6">6번</option>
+      <option value="7">7번</option>
+      <option value="8">8번</option>
+      <option value="9">9번</option>
+      <option value="10">10번</option>
+      <option value="11">11번</option>
+      <option value="12">12번</option>
+      <option value="13">13번</option>
+      <option value="14">14번</option>
+      <option value="15">15번</option>
+      <option value="16">16번</option>
+      <option value="17">17번</option>
+      <option value="18">18번</option>
+      <option value="19">19번</option>
+      <option value="20">20번</option>
+      <option value="21">21번</option>
+      <option value="22">22번</option>
+      <option value="23">23번</option>
+      <option value="24">24번</option>
+      <option value="25">25번</option>
+      <option value="26">26번</option>
+      <option value="27">27번</option>
+      <option value="28">28번</option>
+      <option value="29">29번</option>
+      <option value="30">30번</option>
+      <option value="31">31번</option>
+    </select>
+    <br>
+  </div>
+</body>
+</html>
+
+
