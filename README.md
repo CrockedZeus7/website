@@ -1,3 +1,3 @@
 # website
 경인고등학교 급식 알리미 + 7반 사이트
-http://kingo.kro.kr/
+http://kingo.kro.kr/ -> https://ki24.site -> https://ki36.site
