@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>급식 조회</title>
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDJ8Q2F742"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JDJ8Q2F742');
+</script>
+
+</head>
+<body>
+
+<header>
+    <h1>🍚 급식 조회</h1>
+    <p>조회할 날짜를 선택해주세요.</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>날짜 선택</h2>
+
+        <input
+            type="date"
+            id="selectedDate">
+
+    </div>
+
+    <div class="card">
+
+        <h2 id="mealTitle">
+            급식을 조회해주세요
+        </h2>
+
+        <div id="mealResult">
+            날짜를 선택하면 급식이 표시됩니다.
+        </div>
+
+    </div>
+
+    <a class="back" href="/">
+        ← 메인으로 돌아가기
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#1a1a1a;
+    color:white;
+    font-family:'GmarketSansMedium',sans-serif;
+}
+
+header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+header h1{
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+header p{
+    color:#bfbfbf;
+}
+
+.container{
+    width:90%;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.card{
+    background:#2e2e2e;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.08);
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+input[type="date"]{
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#d1d1d1;
+
+    font-size:16px;
+
+    font-family:inherit;
+}
+
+#mealResult{
+    line-height:2;
+    color:#d6d6d6;
+}
+
+.back{
+    display:block;
+
+    width:fit-content;
+
+    margin:30px auto 0;
+
+    text-decoration:none;
+
+    color:#cfcfcf;
+}
+
+.back:hover{
+    color:white;
+}
+

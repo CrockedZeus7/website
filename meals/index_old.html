@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDJ8Q2F742"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JDJ8Q2F742');
+</script>
+
+  <!-- 사이트 코드 시작 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>경인고 급식 조회</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
+</head>
+<h1 id="menuTitle">급식 식단</h1>
+
+<body>
+  <center>
+    <div class="menu">
+      <h1 id="mealTitle"></h1>
+      <a>
+        하단의 박스를 눌러 조회하시려는 <h3><strong>급식 날짜</strong></h3>를 지정해주세요.😃
+      </a>
+      <br><br><input type="date" id="selectedDate">
+  </center>
+</body>
+<footer>
+  <center>
+    <span onclick="location.href='/edit/';">급식 메세지 편집기 바로가기</span>
+  </center>
+</footer>
+
+</html>

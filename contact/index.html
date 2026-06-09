@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>연락 수단</title>
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<style>
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#1a1a1a;
+    color:white;
+    font-family:'GmarketSansMedium', sans-serif;
+}
+
+/* 제목 */
+
+header{
+    text-align:center;
+    padding:60px 20px 40px;
+}
+
+header h1{
+    margin:0;
+    font-size:2rem;
+}
+
+/* 컨테이너 */
+
+.container{
+    width:90%;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+/* 연락 수단 카드 */
+
+.contact-grid{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:220px;
+
+    background:#2e2e2e;
+
+    border-radius:12px;
+
+    padding:24px 20px;
+
+    box-shadow:0 0 10px #494949;
+
+    transition:all .18s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 18px #6a6a6a;
+}
+
+.card h2{
+    font-size:1.2rem;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#d6d6d6;
+    font-size:14px;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.phone{
+    font-size:1rem;
+    font-weight:bold;
+    color:white;
+}
+
+/* 버튼 */
+
+.btn{
+    display:inline-block;
+
+    background:#d1d1d1;
+    color:black;
+
+    padding:10px 14px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:.15s;
+}
+
+.btn:hover{
+    transform:scale(1.04);
+}
+
+/* 뒤로가기 */
+
+.back{
+    display:block;
+
+    width:fit-content;
+
+    margin:40px auto 0;
+
+    text-decoration:none;
+
+    color:#cfcfcf;
+
+    font-size:14px;
+
+    transition:.15s;
+}
+
+.back:hover{
+    color:white;
+}
+
+/* 푸터 */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#9a9a9a;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📞 연락 수단</h1>
+    <p>편하신 방법으로 연락해주세요.</p>
+</header>
+
+<div class="container">
+
+    <div class="contact-grid">
+
+        <div class="card">
+            <h2>📱 전화번호</h2>
+            <p>급한 용무가 있을 경우 연락해주세요.</p>
+
+            <div class="phone">
+                010-4780-1620
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💬 카카오톡</h2>
+            <p>
+                카카오톡 오픈채팅(개인)입니다.
+            </p>
+
+            <a class="btn"
+               href="https://open.kakao.com/me/2021gcm21106">
+                바로가기
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>📝 익명 건의함</h2>
+            <p>
+                익명으로 건의사항을 제출할 수 있습니다.
+            </p>
+
+            <a class="btn"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfVuno7QJzZfcxC0FYQDO5_AdtH30lMhJn3N5QzA0qP7b2-0g/viewform?usp=sf_link">
+                바로가기
+            </a>
+        </div>
+
+    </div>
+
+    <a class="back" href="/">
+        ← 메인으로 돌아가기
+    </a>
+
+</div>
+
+<footer>
+    © 경인고 6반 사이트
+</footer>
+
+</body>
+</html>
