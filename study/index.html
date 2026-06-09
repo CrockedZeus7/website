@@ -1,217 +1,213 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>필기 공유</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>필기 공유</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDJ8Q2F742"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JDJ8Q2F742');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JDJ8Q2F742');
 </script>
-  <style>
-    @font-face {
-      font-family: 'GmarketSansMedium';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
 
-    * {
-      box-sizing: border-box;
-    }
-    .sub-note {
-    font-size: 0.8em;
-    opacity: 0.7;  
-    }
+<style>
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+}
 
-    html {
-      color: white;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: "GmarketSansMedium", cursive;
-      background-color: #1a1a1a;
-    }
+body {
+    margin: 0;
+    background: #1a1a1a;
+    color: white;
+    font-family: "GmarketSansMedium", sans-serif;
+}
 
-    h1 {
-      font-size: 2em;
-      text-align: center;
-      margin: 0;
-      padding-top: 60px;
-    }
+h1 {
+    text-align: center;
+    margin: 0;
+    padding-top: 60px;
+    font-size: 2rem;
+}
 
-    .sub {
-      text-align: center;
-      color: #cfcfcf;
-      margin-top: 10px;
-      margin-bottom: 40px;
-      font-size: 15px;
-    }
+/* 공지 */
 
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 0 auto 60px auto;
-    }
+.notice-box {
+    width: 90%;
+    max-width: 700px;
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
+    margin: 25px auto 50px;
+    padding: 22px 28px;
 
-    .menu-card {
-      position: relative;
-      background-color: #2e2e2e;
-      border-radius: 10px;
-      padding: 24px 20px 24px 20px;
-      text-decoration: none;
-      color: white;
-      display: block;
-      overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #2d2d2d,
+        #383838
+    );
 
-      box-shadow: 0px 0px 10px #494949;
+    border-radius: 14px;
 
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
+    box-shadow:
+        0 0 18px rgba(255,255,255,0.05),
+        0 0 40px rgba(255,255,255,0.03);
+}
 
-    .menu-card::before {
-      content: "";
-      position: absolute;
-      inset: -12px;
-      background: rgba(255, 255, 255, 0.08);
-      filter: blur(20px);
-      z-index: -1;
-      border-radius: 18px;
-      opacity: 0.65;
-    }
+.notice-title {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    font-weight: bold;
+}
 
-    .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0px 0px 18px #6a6a6a;
-    }
+.notice-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
 
-    .menu-title {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
+.notice-box li {
+    color: #d8d8d8;
+    line-height: 1.9;
+    font-size: 14px;
+}
 
-    .menu-desc {
-      color: #d6d6d6;
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
+/* 컨텐츠 */
 
-    .go-btn {
-      display: inline-block;
-      background-color: #d1d1d1;
-      border: none;
-      color: black;
-      padding: 10px 14px;
-      text-align: center;
-      font-size: 15px;
-      margin-top: 4px;
-      font-family: "GmarketSansMedium", cursive;
-      border-radius: 5px;
-    }
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
 
-    .back {
-      display: block;
-      width: fit-content;
-      margin: 36px auto 0 auto;
-      color: #d8d8d8;
-      text-decoration: none;
-      font-size: 14px;
-    }
+/* 과목 2개 전용 */
 
-    .back:hover {
-      color: white;
-    }
-  </style>
+.menu-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.menu-card {
+    width: 260px;
+
+    position: relative;
+    overflow: hidden;
+
+    text-decoration: none;
+    color: white;
+
+    background: #2e2e2e;
+
+    border-radius: 12px;
+
+    padding: 24px 20px;
+
+    box-shadow: 0 0 10px #494949;
+
+    transition: all 0.18s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px #6a6a6a;
+}
+
+.menu-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.menu-desc {
+    color: #d6d6d6;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.go-btn {
+    display: inline-block;
+
+    background: #d1d1d1;
+    color: black;
+
+    padding: 10px 14px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+/* 메인 버튼 */
+
+.back {
+    display: block;
+
+    width: fit-content;
+
+    margin: 40px auto 0;
+
+    text-decoration: none;
+
+    color: #cfcfcf;
+
+    font-size: 14px;
+
+    transition: 0.15s;
+}
+
+.back:hover {
+    color: white;
+}
+</style>
 </head>
+
 <body>
-  <h1>📌필기 공유📌</h1>
-<div class="sub">
-  원하시는 교과를 선택하세요.<br>
-  <span class="sub-note">영독작은 페이지 조회수가 없어 비용 이슈로 삭제합니다.</span><br>
-<span class="sub-note">화법과 작문은 '갈래복합'만 업로드됩니다.</span><br>
-<span class="sub-note">독서는 '문학'만 업로드됩니다. (독서지문은 필기가 없음)</span>
+
+<h1>📌 필기 공유 📌</h1>
+
+<div class="notice-box">
+    <div class="notice-title">
+        📢 공지사항 
+    </div>
+
+    <ul>
+        <li>영독작 및 확통은 페이지 조회수가 없어 비용 절감을 위해 삭제합니다.</li>
+        <li>화법과 작문은 갈래복합만 업로드되며, 독서는 문학만 업로드됩니다.</li>
+        <li>이외의 학습지가 필요하신 경우 개인적으로 요청 부탁드립니다.</li>
+    </ul>
 </div>
 
-  <div class="container">
+<div class="container">
+
     <div class="menu-grid">
-<a class="menu-card" href="./dok1/">
-        <div class="menu-title">문학(독서)</div>
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-        <div class="menu-desc">학습지 사진 보기</div>
-=======
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4ed09c2cd7e1b1f09ac2014326c1b3163d50ed66
-=======
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4ed09c2cd7e1b1f09ac2014326c1b3163d50ed66
-        <div class="go-btn">바로가기</div>
-      </a>
+
+        <a class="menu-card" href="./dok1/">
+            <div class="menu-title">문학(독서)</div>
+            <div class="menu-desc">학습지 사진 보기</div>
+            <div class="go-btn">바로가기</div>
+        </a>
+
         <a class="menu-card" href="./hw/">
-        <div class="menu-title">화법과 작문</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-<!--
-      <a class="menu-card" href="./dok2/">
-        <div class="menu-title">독서B</div>
-        <div class="menu-desc">강경숙T(현대소설)</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-      <a class="menu-card" href="./hw/">
-        <div class="menu-title">화법과 작문</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-      <a class="menu-card" href="./eng/">
-        <div class="menu-title">영어</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
+            <div class="menu-title">화법과 작문</div>
+            <div class="menu-desc">학습지 사진 보기</div>
+            <div class="go-btn">바로가기</div>
+        </a>
 
-      <a class="menu-card" href="./prob/">
-        <div class="menu-title">확률과 통계</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-
-      <a class="menu-card" href="./eth/">
-        <div class="menu-title">생활과 윤리</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-
-      <a class="menu-card" href="./soc/">
-        <div class="menu-title">사회·문화</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-
-      <a class="menu-card" href="./bio2/">
-        <div class="menu-title">생명과학II</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
-
-      <a class="menu-card" href="./earth2/">
-        <div class="menu-title">지구과학II</div>
-        <div class="menu-desc">학습지 사진 보기</div>
-        <div class="go-btn">바로가기</div>
-      </a>
     </div>
-      -->
-    <center><a class="back" href="/">← 메인으로 돌아가기</a></center>
-  </div>
+
+    <a class="back" href="/">
+        ← 메인으로 돌아가기
+    </a>
+
+</div>
+
 </body>
 </html>
+```
