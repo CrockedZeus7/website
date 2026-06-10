@@ -191,13 +191,11 @@
   </style>
 </head>
 <body>
-  <h1>화작</h1>
-  <div class="sub">학습지 사진을 업로드 순서대로 볼 수 있어요.</div>
-
+  <h1>화법과 작문</h1>
   <div class="container">
     <div class="menu">
-      <h2>화작 학습지</h2>
-      <p>사진은 위에서부터 아래로 순서대로 정렬됩니다.</p>
+      <h2>화작 필기 공유</h2>
+      <p>누락된 작품이 있는 경우 연락수단으로 연락주세요!</p>
     </div>
 
     <div id="image-list" class="image-list">
@@ -238,6 +236,9 @@
           img.alt = "화작 학습지 " + (index + 1);
           img.loading = "lazy";
 
+          img.onerror = () => {
+          box.remove();
+          };
           const name = document.createElement("div");
           name.className = "file-name";
           name.textContent = fileName;
