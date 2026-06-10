@@ -215,7 +215,7 @@
         const response = await fetch("./images.json");
 
         if (!response.ok) {
-          throw new Error("images.json을 불러오지 못했습니다.");
+          throw new Error("images.json을 불러오지 못했어요ㅠㅠ.");
         }
 
         const images = await response.json();
@@ -258,3 +258,17 @@
 
 </html>
 
+    async function loadImages() {
+      const imageList = document.getElementById("image-list");
+
+      try {
+        const response = await fetch("./images.json");
+
+        if (!response.ok) {
+          throw new Error("images.json을 불러오지 못했어요ㅠㅠ.");
+        }
+
+        const images = await response.json();
+
+        if (!Array.isArray(images) || images.length === 0) {
+          imageList.in
